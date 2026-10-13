@@ -23,28 +23,62 @@ header .wrap{display:flex;align-items:center;gap:10px;height:60px}
 .logo span{color:var(--accent)}
 nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-size:15px}
 nav a:hover{color:var(--ink)}
-main .wrap{padding-top:28px;padding-bottom:48px}
+main .wrap{padding-top:28px;padding-bottom:56px}
 h1{font-size:33px;line-height:1.2;letter-spacing:-.02em;margin:.1em 0 .3em}
-h2{font-size:23px;letter-spacing:-.01em;margin:1.8em 0 .5em}
-h3{font-size:18px;margin:1.4em 0 .3em}
+h2{font-size:23px;letter-spacing:-.01em;margin:1.9em 0 .5em}
+h3{font-size:17px;margin:1.4em 0 .3em}
 p,li{color:#26263a}
 .lede{font-size:19px;color:var(--muted)}
 .crumb{font-size:14px;color:var(--muted);margin:0 0 6px}
 .crumb a{color:var(--muted)}
+a{color:var(--accent)}
 table{border-collapse:collapse;width:100%;margin:1em 0;font-size:15.5px}
 th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line)}
 th{background:var(--soft);font-weight:700}
-td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
-.rank{font-weight:700}
-.note{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:1.2em 0;font-size:15.5px}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.note{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:1.3em 0;font-size:15.5px}
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;margin:1.2em 0}
 .card{border:1px solid var(--line);border-radius:12px;padding:16px;text-decoration:none;color:var(--ink);transition:border-color .15s}
 .card:hover{border-color:var(--accent)}
 .card b{display:block;font-size:17px;margin-bottom:3px}
 .card small{color:var(--muted)}
+.hand{display:flex;gap:16px;align-items:center;padding:15px 0;border-bottom:1px solid var(--line)}
+.pcs{display:inline-flex;gap:4px;flex:0 0 auto}
+.pc{filter:drop-shadow(0 1px 2px rgba(20,20,40,.1))}
+.hand-name{font-weight:700;font-size:16.5px}
+.hand-name .odds{font-weight:400;font-size:13px;color:var(--muted);margin-left:8px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.hand-desc{color:var(--muted);font-size:15px;margin-top:2px}
+@media(max-width:480px){.hand{flex-direction:column;align-items:flex-start;gap:8px}}
+.gloss{margin:1em 0;padding:0}
+.gloss div{padding:11px 0;border-bottom:1px solid var(--line);display:flex;gap:14px;flex-wrap:wrap}
+.gloss dt{font-weight:700;min-width:120px;flex:0 0 auto}
+.gloss dd{margin:0;color:#3a3a50;flex:1 1 220px}
+.steps li{margin:.4em 0}
+.vari b{color:var(--ink)}
+/* interactive demo */
+.demo{border:1px solid var(--line);border-radius:12px;padding:18px;margin:1.3em 0;background:var(--soft)}
+.demo-head b{font-size:16px}
+.demo-sub{color:var(--muted);font-size:14.5px;margin:.35em 0 1em}
+.deal-btn{appearance:none;border:0;background:var(--accent);color:#fff;font-size:15px;font-weight:600;padding:10px 18px;border-radius:8px;cursor:pointer}
+.deal-btn:hover{background:#9a2440}
+.deal-btn:active{transform:translateY(1px)}
+.demo-result{font-size:16px;min-height:1.5em;margin:.2em 0 .4em}
+.demo .upd{margin:.2em 0 .4em}
+.vs{display:flex;align-items:flex-start;gap:14px;margin:16px 0 4px;flex-wrap:wrap}
+.vs-side{flex:1 1 180px;min-width:150px}
+.vs-label{font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px}
+.vs-side .pcs{min-height:58px;gap:5px}
+.vs-name{font-weight:700;font-size:15px;margin-top:6px;min-height:1.3em}
+.related{font-size:15px;color:var(--muted);margin:.2em 0 0}
+.vs-div{align-self:center;color:var(--muted);font-size:14px;font-weight:700;padding-top:22px}
+@media(max-width:480px){.vs-div{display:none}}
+.pickers{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.picker{display:inline-flex}
+.picker select{font-size:14px;padding:5px 3px;border:1px solid #cfcfdd;background:#fff;cursor:pointer}
+.picker .rk{border-radius:6px 0 0 6px;border-right:0;font-weight:600}
+.picker .su{border-radius:0 6px 6px 0;font-size:15px}
 footer{border-top:1px solid var(--line);color:var(--muted);font-size:14px}
 footer .wrap{padding:22px 20px}
-a{color:var(--accent)}
 .upd{color:var(--muted);font-size:14px;margin-top:4px}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Taash Guide","url":"https://taashguide.com/"}</script>
@@ -59,14 +93,10 @@ a{color:var(--accent)}
 <h1>Learn India's card games — the rules, done right</h1>
 <p class="lede">Plain-English rules, hand rankings and real odds for Teen Patti and more.
 No jargon, no fluff, no sign-ups.</p>
-
 <div class="cards">
-  <a class="card" href="/teen-patti">
-    <b>Teen Patti</b>
-    <small>Rules, hand rankings &amp; exact probabilities</small>
-  </a>
+  <a class="card" href="/teen-patti"><b>Teen Patti</b>
+  <small>Rules, hand rankings, exact odds &amp; an interactive hand-comparer</small></a>
 </div>
-
 <h2>Why this site</h2>
 <p>Most rules pages are copied from each other and get the odds wrong. Every number
 here is calculated from the maths of a 52-card deck, and shown with the method so
@@ -76,5 +106,6 @@ you can check it. More games are on the way.</p>
 <footer><div class="wrap">
   Taash Guide — rules and odds for Indian card games. Informational only; no real-money play.
 </div></footer>
+
 </body>
 </html>

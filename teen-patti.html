@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Teen Patti Rules &amp; Hand Rankings (with Exact Odds)</title>
-<meta name="description" content="Learn Teen Patti: full rules, all six hands ranked strongest to weakest, and the exact probability of each — calculated, not guessed.">
+<meta name="description" content="Teen Patti rules: all six hands ranked with exact odds, an interactive hand-comparer, betting terms, how a round works, and popular variations.">
 <link rel="canonical" href="https://taashguide.com/teen-patti">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Teen Patti Rules &amp; Hand Rankings (with Exact Odds)">
-<meta property="og:description" content="Learn Teen Patti: full rules, all six hands ranked strongest to weakest, and the exact probability of each — calculated, not guessed.">
+<meta property="og:description" content="Teen Patti rules: all six hands ranked with exact odds, an interactive hand-comparer, betting terms, how a round works, and popular variations.">
 <meta property="og:url" content="https://taashguide.com/teen-patti">
 <meta property="og:site_name" content="Taash Guide">
 <style>
@@ -23,31 +23,65 @@ header .wrap{display:flex;align-items:center;gap:10px;height:60px}
 .logo span{color:var(--accent)}
 nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-size:15px}
 nav a:hover{color:var(--ink)}
-main .wrap{padding-top:28px;padding-bottom:48px}
+main .wrap{padding-top:28px;padding-bottom:56px}
 h1{font-size:33px;line-height:1.2;letter-spacing:-.02em;margin:.1em 0 .3em}
-h2{font-size:23px;letter-spacing:-.01em;margin:1.8em 0 .5em}
-h3{font-size:18px;margin:1.4em 0 .3em}
+h2{font-size:23px;letter-spacing:-.01em;margin:1.9em 0 .5em}
+h3{font-size:17px;margin:1.4em 0 .3em}
 p,li{color:#26263a}
 .lede{font-size:19px;color:var(--muted)}
 .crumb{font-size:14px;color:var(--muted);margin:0 0 6px}
 .crumb a{color:var(--muted)}
+a{color:var(--accent)}
 table{border-collapse:collapse;width:100%;margin:1em 0;font-size:15.5px}
 th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line)}
 th{background:var(--soft);font-weight:700}
-td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
-.rank{font-weight:700}
-.note{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:1.2em 0;font-size:15.5px}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.note{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:1.3em 0;font-size:15.5px}
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;margin:1.2em 0}
 .card{border:1px solid var(--line);border-radius:12px;padding:16px;text-decoration:none;color:var(--ink);transition:border-color .15s}
 .card:hover{border-color:var(--accent)}
 .card b{display:block;font-size:17px;margin-bottom:3px}
 .card small{color:var(--muted)}
+.hand{display:flex;gap:16px;align-items:center;padding:15px 0;border-bottom:1px solid var(--line)}
+.pcs{display:inline-flex;gap:4px;flex:0 0 auto}
+.pc{filter:drop-shadow(0 1px 2px rgba(20,20,40,.1))}
+.hand-name{font-weight:700;font-size:16.5px}
+.hand-name .odds{font-weight:400;font-size:13px;color:var(--muted);margin-left:8px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.hand-desc{color:var(--muted);font-size:15px;margin-top:2px}
+@media(max-width:480px){.hand{flex-direction:column;align-items:flex-start;gap:8px}}
+.gloss{margin:1em 0;padding:0}
+.gloss div{padding:11px 0;border-bottom:1px solid var(--line);display:flex;gap:14px;flex-wrap:wrap}
+.gloss dt{font-weight:700;min-width:120px;flex:0 0 auto}
+.gloss dd{margin:0;color:#3a3a50;flex:1 1 220px}
+.steps li{margin:.4em 0}
+.vari b{color:var(--ink)}
+/* interactive demo */
+.demo{border:1px solid var(--line);border-radius:12px;padding:18px;margin:1.3em 0;background:var(--soft)}
+.demo-head b{font-size:16px}
+.demo-sub{color:var(--muted);font-size:14.5px;margin:.35em 0 1em}
+.deal-btn{appearance:none;border:0;background:var(--accent);color:#fff;font-size:15px;font-weight:600;padding:10px 18px;border-radius:8px;cursor:pointer}
+.deal-btn:hover{background:#9a2440}
+.deal-btn:active{transform:translateY(1px)}
+.demo-result{font-size:16px;min-height:1.5em;margin:.2em 0 .4em}
+.demo .upd{margin:.2em 0 .4em}
+.vs{display:flex;align-items:flex-start;gap:14px;margin:16px 0 4px;flex-wrap:wrap}
+.vs-side{flex:1 1 180px;min-width:150px}
+.vs-label{font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px}
+.vs-side .pcs{min-height:58px;gap:5px}
+.vs-name{font-weight:700;font-size:15px;margin-top:6px;min-height:1.3em}
+.related{font-size:15px;color:var(--muted);margin:.2em 0 0}
+.vs-div{align-self:center;color:var(--muted);font-size:14px;font-weight:700;padding-top:22px}
+@media(max-width:480px){.vs-div{display:none}}
+.pickers{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.picker{display:inline-flex}
+.picker select{font-size:14px;padding:5px 3px;border:1px solid #cfcfdd;background:#fff;cursor:pointer}
+.picker .rk{border-radius:6px 0 0 6px;border-right:0;font-weight:600}
+.picker .su{border-radius:0 6px 6px 0;font-size:15px}
 footer{border-top:1px solid var(--line);color:var(--muted);font-size:14px}
 footer .wrap{padding:22px 20px}
-a{color:var(--accent)}
 .upd{color:var(--muted);font-size:14px;margin-top:4px}
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://taashguide.com/"},{"@type":"ListItem","position":2,"name":"Teen Patti","item":"https://taashguide.com/teen-patti"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Teen Patti Rules and Hand Rankings","description":"The rules of Teen Patti with exact hand probabilities.","mainEntityOfPage":"https://taashguide.com/teen-patti","publisher":{"@type":"Organization","name":"Taash Guide"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://taashguide.com/"},{"@type":"ListItem","position":2,"name":"Teen Patti","item":"https://taashguide.com/teen-patti"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Teen Patti Rules and Hand Rankings","description":"Teen Patti rules, hand rankings with exact probabilities, an interactive showdown demo, betting terms and variations.","mainEntityOfPage":"https://taashguide.com/teen-patti","publisher":{"@type":"Organization","name":"Taash Guide"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does a Trail beat a Pure Sequence?","acceptedAnswer":{"@type":"Answer","text":"Yes. A Trail (three of a kind) is the highest hand, above a Pure Sequence — even though a Pure Sequence is slightly rarer."}},{"@type":"Question","name":"Is A-2-3 a valid sequence?","acceptedAnswer":{"@type":"Answer","text":"Yes. A-2-3 is a valid run, and in most house rules it is the second-highest run after A-K-Q."}},{"@type":"Question","name":"Which is higher between two flushes or two sequences?","acceptedAnswer":{"@type":"Answer","text":"Compare the highest card; if tied, the next, then the last."}},{"@type":"Question","name":"What is the highest pair?","acceptedAnswer":{"@type":"Answer","text":"A-A with any third card. Between equal pairs, the third card (the kicker) decides."}},{"@type":"Question","name":"Can you win without the best hand?","acceptedAnswer":{"@type":"Answer","text":"Yes. If everyone else packs, the last player left wins the pot regardless of their cards."}},{"@type":"Question","name":"Is Teen Patti the same as 3 Patti, Flush or Flash?","acceptedAnswer":{"@type":"Answer","text":"Yes — these are all names for the same game."}},{"@type":"Question","name":"How many players and how many cards?","acceptedAnswer":{"@type":"Answer","text":"3 to 6 players, one standard 52-card deck, no jokers, three cards each."}}]}</script>
 </head>
 <body>
 <header><div class="wrap">
@@ -58,45 +92,62 @@ a{color:var(--accent)}
 
 <p class="crumb"><a href="/">Home</a> › Teen Patti</p>
 <h1>Teen Patti rules and hand rankings</h1>
-<p class="lede">How to play, every hand ranked from strongest to weakest, and the exact
-chance of being dealt each one.</p>
+<p class="lede">How to play, every hand ranked from strongest to weakest with the exact
+odds, an interactive hand-comparer, plus the betting terms and variations you'll meet
+at the table.</p>
+<p class="related">More detail: <a href="/teen-patti-sequences">Teen Patti sequence list</a>
+· <a href="/teen-patti-probability">Teen Patti probability</a></p>
 
 <h2>The goal</h2>
-<p>Teen Patti ("three cards") is played by 3 to 6 players with a standard 52-card deck,
-no jokers. Each player is dealt three cards face down. The aim is to hold the
-highest-ranking three-card hand at showdown, or to make everyone else fold before then.</p>
+<p>Teen Patti ("three cards", also called 3 Patti, Flush or Flash) is played by 3 to 6
+players with a standard 52-card deck, no jokers. Each player is dealt three cards face
+down. The aim is to hold the highest-ranking three-card hand at showdown — or to make
+everyone else fold before then.</p>
 
 <h2>Hand rankings, strongest to weakest</h2>
-<p>There are 22,100 possible three-card hands. Each row below shows how often that
-hand comes up — calculated directly from the deck, not estimated.</p>
-<table>
-<thead><tr><th class="num">#</th><th>Hand</th><th>What it is</th><th class="num">Chance</th><th class="num">Odds</th></tr></thead>
-<tbody><tr><td class='num'>1</td><td class='rank'>Trail / Set (three of a kind)</td><td>Three cards of the same rank, e.g. A-A-A.</td><td class='num'>0.24%</td><td class='num'>1 in 425</td></tr><tr><td class='num'>2</td><td class='rank'>Pure Sequence (straight flush)</td><td>Three consecutive cards, same suit, e.g. 9-10-J of hearts.</td><td class='num'>0.22%</td><td class='num'>1 in 460</td></tr><tr><td class='num'>3</td><td class='rank'>Sequence (straight / run)</td><td>Three consecutive cards, mixed suits.</td><td class='num'>3.26%</td><td class='num'>1 in 31</td></tr><tr><td class='num'>4</td><td class='rank'>Colour (flush)</td><td>Three cards of the same suit, not in sequence.</td><td class='num'>4.96%</td><td class='num'>1 in 20</td></tr><tr><td class='num'>5</td><td class='rank'>Pair</td><td>Two cards of the same rank, e.g. K-K-7.</td><td class='num'>16.94%</td><td class='num'>1 in 6</td></tr><tr><td class='num'>6</td><td class='rank'>High Card</td><td>None of the above; the highest card decides.</td><td class='num'>74.39%</td><td class='num'>1 in 1</td></tr></tbody>
-</table>
+<p>There are 22,100 possible three-card hands. The chance beside each hand is how often
+it comes up, calculated directly from the deck.</p>
+
+<div class="demo">
+  <div class="demo-head"><b>Try it — compare two hands</b></div>
+  <p class="demo-sub">Pick any three cards for each side (or hit Randomise) and see who wins and exactly why.
+  It's a rules demo — no betting.</p>
+  <div class="vs">
+    <div class="vs-side"><div class="vs-label">You</div><div class="pickers" id="tp-you-pick"></div><div id="tp-you" class="pcs"></div><div id="tp-you-name" class="vs-name"></div></div>
+    <div class="vs-div">vs</div>
+    <div class="vs-side"><div class="vs-label">Opponent</div><div class="pickers" id="tp-opp-pick"></div><div id="tp-opp" class="pcs"></div><div id="tp-opp-name" class="vs-name"></div></div>
+  </div>
+  <button id="tp-rand" class="deal-btn" type="button">Randomise both hands</button>
+  <div id="tp-result" class="demo-result" aria-live="polite"></div>
+</div>
+
+<div class="hand"><span class="pcs"><svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="A of spades"><rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/><text x="6" y="18" font-size="15" font-weight="700" fill="#20202e" font-family="Arial,Helvetica,sans-serif">A</text><text x="24" y="46" font-size="23" text-anchor="middle" fill="#20202e">♠</text></svg><svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="A of hearts"><rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/><text x="6" y="18" font-size="15" font-weight="700" fill="#c0392b" font-family="Arial,Helvetica,sans-serif">A</text><text x="24" y="46" font-size="23" text-anchor="middle" fill="#c0392b">♥</text></svg><svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="A of diamonds"><rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/><text x="6" y="18" font-size="15" font-weight="700" fill="#c0392b" font-family="Arial,Helvetica,sans-serif">A</text><text x="24" y="46" font-size="23" text-anchor="middle" fill="#c0392b">♦</text></svg></span><div><div class="hand-name">1. Trail / Set (three of a kind)<span class="odds">0.24% · 1 in 425</span></div><div class="hand-desc">Three cards of the same rank. The strongest hand in the game.</div></div></div><div class="hand"><span class="pcs"><svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="9 of hearts"><rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/><text x="6" y="18" font-size="15" font-weight="700" fill="#c0392b" font-family="Arial,Helvetica,sans-serif">9</text><text x="24" y="46" font-size="23" text-anchor="middle" fill="#c0392b">♥</text></svg><svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="10 of hearts"><rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/><text x="6" y="18" font-size="15" font-weight="700" fill="#c0392b" font-family="Arial,Helvetica,sans-serif">10</text><text x="24" y="46" font-size="23" text-anchor="middle" fill="#c0392b">♥</text></svg><svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="J of hearts"><rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/><text x="6" y="18" font-size="15" font-weight="700" fill="#c0392b" font-family="Arial,Helvetica,sans-serif">J</text><text x="24" y="46" font-size="23" text-anchor="middle" fill="#c0392b">♥</text></svg></span><div><div class="hand-name">2. Pure Sequence (straight flush)<span class="odds">0.22% · 1 in 460</span></div><div class="hand-desc">Three consecutive cards of the same suit.</div></div></div><div class="hand"><span class="pcs"><svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="8 of spades"><rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/><text x="6" y="18" font-size="15" font-weight="700" fill="#20202e" font-family="Arial,Helvetica,sans-serif">8</text><text x="24" y="46" font-size="23" text-anchor="middle" fill="#20202e">♠</text></svg><svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="9 of hearts"><rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/><text x="6" y="18" font-size="15" font-weight="700" fill="#c0392b" font-family="Arial,Helvetica,sans-serif">9</text><text x="24" y="46" font-size="23" text-anchor="middle" fill="#c0392b">♥</text></svg><svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="10 of diamonds"><rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/><text x="6" y="18" font-size="15" font-weight="700" fill="#c0392b" font-family="Arial,Helvetica,sans-serif">10</text><text x="24" y="46" font-size="23" text-anchor="middle" fill="#c0392b">♦</text></svg></span><div><div class="hand-name">3. Sequence (straight / run)<span class="odds">3.26% · 1 in 31</span></div><div class="hand-desc">Three consecutive cards of mixed suits.</div></div></div><div class="hand"><span class="pcs"><svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="2 of clubs"><rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/><text x="6" y="18" font-size="15" font-weight="700" fill="#20202e" font-family="Arial,Helvetica,sans-serif">2</text><text x="24" y="46" font-size="23" text-anchor="middle" fill="#20202e">♣</text></svg><svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="7 of clubs"><rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/><text x="6" y="18" font-size="15" font-weight="700" fill="#20202e" font-family="Arial,Helvetica,sans-serif">7</text><text x="24" y="46" font-size="23" text-anchor="middle" fill="#20202e">♣</text></svg><svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="J of clubs"><rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/><text x="6" y="18" font-size="15" font-weight="700" fill="#20202e" font-family="Arial,Helvetica,sans-serif">J</text><text x="24" y="46" font-size="23" text-anchor="middle" fill="#20202e">♣</text></svg></span><div><div class="hand-name">4. Colour (flush)<span class="odds">4.96% · 1 in 20</span></div><div class="hand-desc">Three cards of the same suit, not in sequence.</div></div></div><div class="hand"><span class="pcs"><svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="K of spades"><rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/><text x="6" y="18" font-size="15" font-weight="700" fill="#20202e" font-family="Arial,Helvetica,sans-serif">K</text><text x="24" y="46" font-size="23" text-anchor="middle" fill="#20202e">♠</text></svg><svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="K of diamonds"><rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/><text x="6" y="18" font-size="15" font-weight="700" fill="#c0392b" font-family="Arial,Helvetica,sans-serif">K</text><text x="24" y="46" font-size="23" text-anchor="middle" fill="#c0392b">♦</text></svg><svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="7 of clubs"><rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/><text x="6" y="18" font-size="15" font-weight="700" fill="#20202e" font-family="Arial,Helvetica,sans-serif">7</text><text x="24" y="46" font-size="23" text-anchor="middle" fill="#20202e">♣</text></svg></span><div><div class="hand-name">5. Pair<span class="odds">16.94% · 1 in 6</span></div><div class="hand-desc">Two cards of the same rank, plus a third.</div></div></div><div class="hand"><span class="pcs"><svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="A of spades"><rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/><text x="6" y="18" font-size="15" font-weight="700" fill="#20202e" font-family="Arial,Helvetica,sans-serif">A</text><text x="24" y="46" font-size="23" text-anchor="middle" fill="#20202e">♠</text></svg><svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="Q of diamonds"><rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/><text x="6" y="18" font-size="15" font-weight="700" fill="#c0392b" font-family="Arial,Helvetica,sans-serif">Q</text><text x="24" y="46" font-size="23" text-anchor="middle" fill="#c0392b">♦</text></svg><svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="9 of clubs"><rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/><text x="6" y="18" font-size="15" font-weight="700" fill="#20202e" font-family="Arial,Helvetica,sans-serif">9</text><text x="24" y="46" font-size="23" text-anchor="middle" fill="#20202e">♣</text></svg></span><div><div class="hand-name">6. High Card<span class="odds">74.39% · 1 in 1</span></div><div class="hand-desc">None of the above; the highest card decides.</div></div></div>
 
 <div class="note">
 <b>A quirk worth knowing:</b> a Pure Sequence (48 possible hands) is
 actually rarer than a Trail (52 hands), yet the Trail still ranks
-higher. Teen Patti's ranking isn't ordered strictly by probability — this one pair of
-hands is the exception.
-</div>
+higher. Teen Patti's ranking isn't ordered strictly by probability — this pair of hands
+is the exception.</div>
+
+<h2>Betting terms</h2>
+<p>Most of the game is betting, not card-play. These are the words you need:</p>
+<dl class="gloss"><div><dt>Boot (ante)</dt><dd>The fixed minimum everyone puts into the pot before any cards are dealt.</dd></div><div><dt>Blind</dt><dd>Betting without looking at your cards.</dd></div><div><dt>Seen</dt><dd>Betting after looking at your cards. A seen player bets at least double a blind player.</dd></div><div><dt>Chaal</dt><dd>A normal bet to stay in the hand on your turn.</dd></div><div><dt>Pack / Fold</dt><dd>Giving up your hand; you lose whatever you have put in the pot.</dd></div><div><dt>Show</dt><dd>The final reveal between the last two players. The higher hand wins the pot.</dd></div><div><dt>Side show</dt><dd>A seen player asks the previous seen player to compare hands privately; the lower hand must pack.</dd></div><div><dt>Pot limit</dt><dd>A cap that limits the maximum bet to the current size of the pot.</dd></div></dl>
 
 <h2>How a round plays out</h2>
-<p>Before the deal, everyone puts a fixed stake (the <i>boot</i>) into the pot. Players
-then take turns, choosing to play <i>seen</i> (after looking at their cards) or
-<i>blind</i> (without looking). On your turn you either bet to stay in, or fold. When
-only two players remain, either can call for a <i>show</i>, and the higher hand takes
-the pot.</p>
+<ol class="steps">
+<li>Everyone pays the <b>boot</b> into the pot (say ₹10 each).</li>
+<li>Three cards are dealt face down to each player.</li>
+<li>The player to the dealer's left acts first — bet <b>blind</b>, or look and play <b>seen</b>.</li>
+<li>Play moves clockwise. On your turn you <b>chaal</b> (bet) to stay in, or <b>pack</b> to fold.</li>
+<li>A seen player may call a <b>side show</b> with the previous seen player to compare hands privately.</li>
+<li>When two players remain, either pays for a <b>show</b>. The higher hand takes the pot.</li>
+</ol>
+
+<h2>Popular variations</h2>
+<ul class='vari'><li><b>Muflis (Lowball)</b> — Rankings are reversed — the lowest hand wins. High Card beats a Trail.</li><li><b>AK47</b> — All Aces, Kings, 4s and 7s act as jokers (wild cards).</li><li><b>Joker / Wild Draw</b> — One or more ranks are picked at random to be wild for the whole table.</li><li><b>Best of Four</b> — Each player gets four cards and makes the best three-card hand.</li><li><b>Lowest Joker</b> — Each player&#x27;s own lowest card becomes their personal joker.</li></ul>
 
 <h2>Common questions</h2>
-<h3>Does a Trail beat a Pure Sequence?</h3>
-<p>Yes. A Trail (three of a kind) is the highest hand in Teen Patti, above a Pure
-Sequence — even though a Pure Sequence is slightly rarer.</p>
-<h3>Is A-2-3 a valid sequence?</h3>
-<p>Yes. A-2-3 is a valid run, and in most house rules it is the second-highest run
-after A-K-Q.</p>
-<h3>Which is higher between two flushes?</h3>
-<p>Compare the highest card; if tied, the next, then the last.</p>
+<h3>Does a Trail beat a Pure Sequence?</h3><p>Yes. A Trail (three of a kind) is the highest hand, above a Pure Sequence — even though a Pure Sequence is slightly rarer.</p><h3>Is A-2-3 a valid sequence?</h3><p>Yes. A-2-3 is a valid run, and in most house rules it is the second-highest run after A-K-Q.</p><h3>Which is higher between two flushes or two sequences?</h3><p>Compare the highest card; if tied, the next, then the last.</p><h3>What is the highest pair?</h3><p>A-A with any third card. Between equal pairs, the third card (the kicker) decides.</p><h3>Can you win without the best hand?</h3><p>Yes. If everyone else packs, the last player left wins the pot regardless of their cards.</p><h3>Is Teen Patti the same as 3 Patti, Flush or Flash?</h3><p>Yes — these are all names for the same game.</p><h3>How many players and how many cards?</h3><p>3 to 6 players, one standard 52-card deck, no jokers, three cards each.</p>
 
 <p class="upd">All probabilities computed from C(52,3) = 22,100 hands.</p>
 
@@ -104,5 +155,118 @@ after A-K-Q.</p>
 <footer><div class="wrap">
   Taash Guide — rules and odds for Indian card games. Informational only; no real-money play.
 </div></footer>
+<script>const TP_ODDS={"trail": {"label": "Trail / Set", "pct": 0.24, "one_in": 425}, "pure": {"label": "Pure Sequence", "pct": 0.22, "one_in": 460}, "seq": {"label": "Sequence", "pct": 3.26, "one_in": 31}, "colour": {"label": "Colour", "pct": 4.96, "one_in": 20}, "pair": {"label": "Pair", "pct": 16.94, "one_in": 6}, "high": {"label": "High Card", "pct": 74.39, "one_in": 1}};</script>
+<script>
+(function(){
+  var SUITS=[{s:'♠',red:false},{s:'♥',red:true},{s:'♦',red:true},{s:'♣',red:false}];
+  var ORDER=['2','3','4','5','6','7','8','9','10','J','Q','K','A'];
+  var VAL={'2':2,'3':3,'4':4,'5':5,'6':6,'7':7,'8':8,'9':9,'10':10,'J':11,'Q':12,'K':13,'A':14};
+  var NAME={14:'A',13:'K',12:'Q',11:'J',10:'10',9:'9',8:'8',7:'7',6:'6',5:'5',4:'4',3:'3',2:'2'};
+  function svgCard(rank,su){
+    var col=su.red?'#c0392b':'#20202e';
+    return '<svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="'+rank+'">'
+      +'<rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/>'
+      +'<text x="6" y="18" font-size="15" font-weight="700" fill="'+col+'" font-family="Arial,Helvetica,sans-serif">'+rank+'</text>'
+      +'<text x="24" y="46" font-size="23" text-anchor="middle" fill="'+col+'">'+su.s+'</text></svg>';
+  }
+  var SU={'♠':SUITS[0],'♥':SUITS[1],'♦':SUITS[2],'♣':SUITS[3]};
+  function seqRank(asc){            // A-K-Q highest, then A-2-3, then top card
+    if(asc[0]===12&&asc[1]===13&&asc[2]===14) return 14;
+    if(asc[0]===2&&asc[1]===3&&asc[2]===14) return 13.5;
+    return asc[2];
+  }
+  function evaluate(cards){
+    var vals=cards.map(function(c){return VAL[c.r];}).sort(function(a,b){return b-a;}); // desc
+    var asc=vals.slice().sort(function(a,b){return a-b;});
+    var flush=(new Set(cards.map(function(c){return c.s;}))).size===1;
+    var uniq=(new Set(vals)).size;
+    var run=false;
+    if(uniq===3){
+      if(asc[2]-asc[0]===2) run=true;
+      if(asc[0]===2&&asc[1]===3&&asc[2]===14) run=true;
+    }
+    var type,key,pr,kk;
+    if(uniq===1){ type='trail'; key=[6,vals[0]]; }
+    else if(run&&flush){ type='pure'; key=[5,seqRank(asc)]; }
+    else if(run){ type='seq'; key=[4,seqRank(asc)]; }
+    else if(flush){ type='colour'; key=[3,vals[0],vals[1],vals[2]]; }
+    else if(uniq===2){
+      pr=(vals[0]===vals[1])?vals[0]:vals[1];
+      kk=(vals[0]===vals[1])?vals[2]:vals[0];
+      type='pair'; key=[2,pr,kk];
+    } else { type='high'; key=[1,vals[0],vals[1],vals[2]]; }
+    return {type:type,key:key,vals:vals,asc:asc,label:TP_ODDS[type].label};
+  }
+  function cmp(a,b){ for(var i=0;i<Math.max(a.length,b.length);i++){var x=a[i]||0,y=b[i]||0; if(x!==y) return x-y;} return 0; }
+  function firstDiff(w,l){ for(var i=0;i<3;i++){ if(w.vals[i]!==l.vals[i]) return i; } return 2; }
+  function seqText(h){
+    if(h.asc[0]===12&&h.asc[1]===13&&h.asc[2]===14) return 'A-K-Q';
+    if(h.asc[0]===2&&h.asc[1]===3&&h.asc[2]===14) return 'A-2-3';
+    return NAME[h.asc[2]]+'-'+NAME[h.asc[1]]+'-'+NAME[h.asc[0]];
+  }
+  function reason(w,l){
+    if(w.type!==l.type) return w.label+' beats '+l.label;
+    if(w.type==='trail') return 'higher trail — three '+NAME[w.vals[0]]+'s beat three '+NAME[l.vals[0]]+'s';
+    if(w.type==='pure'||w.type==='seq') return 'higher '+w.label.toLowerCase()+' — '+seqText(w)+' beats '+seqText(l);
+    if(w.type==='colour'){ var i=firstDiff(w,l); return 'higher flush — '+NAME[w.vals[i]]+' beats '+NAME[l.vals[i]]; }
+    if(w.type==='pair'){
+      if(w.key[1]!==l.key[1]) return 'higher pair — pair of '+NAME[w.key[1]]+'s beats pair of '+NAME[l.key[1]]+'s';
+      return 'same pair of '+NAME[w.key[1]]+'s — higher kicker, '+NAME[w.key[2]]+' beats '+NAME[l.key[2]];
+    }
+    var d=firstDiff(w,l); return 'higher card — '+NAME[w.vals[d]]+' beats '+NAME[l.vals[d]];
+  }
+  var youEl=document.getElementById('tp-you'), oppEl=document.getElementById('tp-opp');
+  var youName=document.getElementById('tp-you-name'), oppName=document.getElementById('tp-opp-name');
+  var resEl=document.getElementById('tp-result');
+  function show(el,cards){ el.innerHTML=cards.map(function(c){return svgCard(c.r,SU[c.s]);}).join(''); }
+  function mkPicker(rank,suit){
+    var p=document.createElement('span'); p.className='picker';
+    var rk=document.createElement('select'); rk.className='rk';
+    for(var i=ORDER.length-1;i>=0;i--){ var o=document.createElement('option'); o.value=ORDER[i]; o.textContent=ORDER[i]; rk.appendChild(o); }
+    rk.value=rank;
+    var su=document.createElement('select'); su.className='su';
+    for(var j=0;j<SUITS.length;j++){ var o2=document.createElement('option'); o2.value=SUITS[j].s; o2.textContent=SUITS[j].s; su.appendChild(o2); }
+    su.value=suit;
+    rk.addEventListener('change',update); su.addEventListener('change',update);
+    p.appendChild(rk); p.appendChild(su); return p;
+  }
+  function readSide(id){
+    var out=[], ps=document.querySelectorAll('#'+id+' .picker');
+    ps.forEach(function(p){ out.push({r:p.querySelector('.rk').value,s:p.querySelector('.su').value}); });
+    return out;
+  }
+  function update(){
+    var you=readSide('tp-you-pick'), opp=readSide('tp-opp-pick');
+    show(youEl,you); show(oppEl,opp);
+    var keys=you.concat(opp).map(function(c){return c.r+c.s;});
+    if((new Set(keys)).size<6){ youName.textContent=''; oppName.textContent='';
+      resEl.innerHTML='<b>Pick six different cards</b> — two of them are the same.'; return; }
+    var ye=evaluate(you), oe=evaluate(opp);
+    youName.textContent=ye.label; oppName.textContent=oe.label;
+    var c=cmp(ye.key,oe.key);
+    if(c>0) resEl.innerHTML='<b>You win</b> — '+reason(ye,oe)+'.';
+    else if(c<0) resEl.innerHTML='<b>Opponent wins</b> — '+reason(oe,ye)+'.';
+    else resEl.innerHTML='<b>Split</b> — identical hands.';
+  }
+  function setSide(id,cards){
+    var ps=document.querySelectorAll('#'+id+' .picker');
+    for(var i=0;i<3;i++){ ps[i].querySelector('.rk').value=cards[i].r; ps[i].querySelector('.su').value=cards[i].s; }
+  }
+  function randomise(){
+    var deck=[],r,si;
+    for(r=0;r<ORDER.length;r++) for(si=0;si<SUITS.length;si++) deck.push({r:ORDER[r],s:SUITS[si].s});
+    var picks=[]; while(picks.length<6){ picks.push(deck.splice(Math.floor(Math.random()*deck.length),1)[0]); }
+    setSide('tp-you-pick',picks.slice(0,3)); setSide('tp-opp-pick',picks.slice(3,6)); update();
+  }
+  // default: a Pure Sequence vs a Trail — shows the quirk (Trail wins)
+  var youDef=[{r:'A',s:'♥'},{r:'K',s:'♥'},{r:'Q',s:'♥'}];
+  var oppDef=[{r:'2',s:'♠'},{r:'2',s:'♥'},{r:'2',s:'♦'}];
+  youDef.forEach(function(c){ document.getElementById('tp-you-pick').appendChild(mkPicker(c.r,c.s)); });
+  oppDef.forEach(function(c){ document.getElementById('tp-opp-pick').appendChild(mkPicker(c.r,c.s)); });
+  document.getElementById('tp-rand').addEventListener('click',randomise);
+  update();
+})();
+</script>
+
 </body>
 </html>

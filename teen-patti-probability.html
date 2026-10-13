@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Teen Patti Probability — Exact Odds of Every Hand</title>
+<meta name="description" content="The exact probability of every Teen Patti hand, computed from the 22,100 possible three-card hands, with an interactive deal-a-hand demo.">
+<link rel="canonical" href="https://taashguide.com/teen-patti-probability">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Teen Patti Probability — Exact Odds of Every Hand">
+<meta property="og:description" content="The exact probability of every Teen Patti hand, computed from the 22,100 possible three-card hands, with an interactive deal-a-hand demo.">
+<meta property="og:url" content="https://taashguide.com/teen-patti-probability">
+<meta property="og:site_name" content="Taash Guide">
+<style>
+:root{--ink:#1a1a2e;--muted:#5a5a72;--line:#e6e6ef;--accent:#b02a4a;--bg:#fff;--soft:#faf8f5}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font:17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px}
+header{border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;gap:10px;height:60px}
+.logo{font-weight:800;letter-spacing:-.02em;color:var(--ink);text-decoration:none;font-size:20px}
+.logo span{color:var(--accent)}
+nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-size:15px}
+nav a:hover{color:var(--ink)}
+main .wrap{padding-top:28px;padding-bottom:56px}
+h1{font-size:33px;line-height:1.2;letter-spacing:-.02em;margin:.1em 0 .3em}
+h2{font-size:23px;letter-spacing:-.01em;margin:1.9em 0 .5em}
+h3{font-size:17px;margin:1.4em 0 .3em}
+p,li{color:#26263a}
+.lede{font-size:19px;color:var(--muted)}
+.crumb{font-size:14px;color:var(--muted);margin:0 0 6px}
+.crumb a{color:var(--muted)}
+a{color:var(--accent)}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:15.5px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line)}
+th{background:var(--soft);font-weight:700}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.note{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:1.3em 0;font-size:15.5px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;margin:1.2em 0}
+.card{border:1px solid var(--line);border-radius:12px;padding:16px;text-decoration:none;color:var(--ink);transition:border-color .15s}
+.card:hover{border-color:var(--accent)}
+.card b{display:block;font-size:17px;margin-bottom:3px}
+.card small{color:var(--muted)}
+.hand{display:flex;gap:16px;align-items:center;padding:15px 0;border-bottom:1px solid var(--line)}
+.pcs{display:inline-flex;gap:4px;flex:0 0 auto}
+.pc{filter:drop-shadow(0 1px 2px rgba(20,20,40,.1))}
+.hand-name{font-weight:700;font-size:16.5px}
+.hand-name .odds{font-weight:400;font-size:13px;color:var(--muted);margin-left:8px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.hand-desc{color:var(--muted);font-size:15px;margin-top:2px}
+@media(max-width:480px){.hand{flex-direction:column;align-items:flex-start;gap:8px}}
+.gloss{margin:1em 0;padding:0}
+.gloss div{padding:11px 0;border-bottom:1px solid var(--line);display:flex;gap:14px;flex-wrap:wrap}
+.gloss dt{font-weight:700;min-width:120px;flex:0 0 auto}
+.gloss dd{margin:0;color:#3a3a50;flex:1 1 220px}
+.steps li{margin:.4em 0}
+.vari b{color:var(--ink)}
+/* interactive demo */
+.demo{border:1px solid var(--line);border-radius:12px;padding:18px;margin:1.3em 0;background:var(--soft)}
+.demo-head b{font-size:16px}
+.demo-sub{color:var(--muted);font-size:14.5px;margin:.35em 0 1em}
+.deal-btn{appearance:none;border:0;background:var(--accent);color:#fff;font-size:15px;font-weight:600;padding:10px 18px;border-radius:8px;cursor:pointer}
+.deal-btn:hover{background:#9a2440}
+.deal-btn:active{transform:translateY(1px)}
+.demo-result{font-size:16px;min-height:1.5em;margin:.2em 0 .4em}
+.demo .upd{margin:.2em 0 .4em}
+.vs{display:flex;align-items:flex-start;gap:14px;margin:16px 0 4px;flex-wrap:wrap}
+.vs-side{flex:1 1 180px;min-width:150px}
+.vs-label{font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px}
+.vs-side .pcs{min-height:58px;gap:5px}
+.vs-name{font-weight:700;font-size:15px;margin-top:6px;min-height:1.3em}
+.related{font-size:15px;color:var(--muted);margin:.2em 0 0}
+.vs-div{align-self:center;color:var(--muted);font-size:14px;font-weight:700;padding-top:22px}
+@media(max-width:480px){.vs-div{display:none}}
+.pickers{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.picker{display:inline-flex}
+.picker select{font-size:14px;padding:5px 3px;border:1px solid #cfcfdd;background:#fff;cursor:pointer}
+.picker .rk{border-radius:6px 0 0 6px;border-right:0;font-weight:600}
+.picker .su{border-radius:0 6px 6px 0;font-size:15px}
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+footer .wrap{padding:22px 20px}
+.upd{color:var(--muted);font-size:14px;margin-top:4px}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://taashguide.com/"},{"@type":"ListItem","position":2,"name":"Teen Patti","item":"https://taashguide.com/teen-patti"},{"@type":"ListItem","position":3,"name":"Probability","item":"https://taashguide.com/teen-patti-probability"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Teen Patti Probability","description":"The exact probability of every Teen Patti hand, computed from a 52-card deck, with an interactive demo.","mainEntityOfPage":"https://taashguide.com/teen-patti-probability","publisher":{"@type":"Organization","name":"Taash Guide"}}</script>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="logo" href="/">Taash<span>Guide</span></a>
+  <nav><a href="/teen-patti">Teen Patti</a></nav>
+</div></header>
+<main><div class="wrap">
+
+<p class="crumb"><a href="/">Home</a> › <a href="/teen-patti">Teen Patti</a> › Probability</p>
+<h1>Teen Patti probability — the exact odds of every hand</h1>
+<p class="lede">How likely is each Teen Patti hand? There are 22,100 possible three-card
+hands; here's how many of them make each type, so the odds are exact, not estimated.</p>
+
+<h2>Odds of every hand</h2>
+<table>
+<thead><tr><th>Hand</th><th class="num">Possible hands</th><th class="num">Chance</th><th class="num">Odds</th></tr></thead>
+<tbody><tr><td>Trail / Set</td><td class='num'>52</td><td class='num'>0.24%</td><td class='num'>1 in 425</td></tr><tr><td>Pure Sequence</td><td class='num'>48</td><td class='num'>0.22%</td><td class='num'>1 in 460</td></tr><tr><td>Sequence</td><td class='num'>720</td><td class='num'>3.26%</td><td class='num'>1 in 31</td></tr><tr><td>Colour</td><td class='num'>1,096</td><td class='num'>4.96%</td><td class='num'>1 in 20</td></tr><tr><td>Pair</td><td class='num'>3,744</td><td class='num'>16.94%</td><td class='num'>1 in 6</td></tr><tr><td>High Card</td><td class='num'>16,440</td><td class='num'>74.39%</td><td class='num'>1 in 1</td></tr></tbody>
+</table>
+
+<div class="note"><b>The counter-intuitive bit:</b> a Pure Sequence (48
+hands) is rarer than a Trail (52 hands), yet a Trail still outranks it.
+The ranking isn't ordered strictly by probability.</div>
+
+<h2>See it for yourself</h2>
+<p>Deal enough hands and the share of each type lands on the odds above — that's how
+probability works in the long run.</p>
+
+<div class="demo">
+  <div class="demo-head"><b>Watch the odds appear</b></div>
+  <p class="demo-sub">Deal random hands and the "so far" column drifts toward the true odds.
+  It's a probability demo — no betting.</p>
+  <button id="pb-deal" class="deal-btn" type="button">Deal a hand</button>
+  <div id="pb-cards" class="pcs demo-cards" aria-live="polite"></div>
+  <div id="pb-result" class="demo-result"></div>
+  <div id="pb-tally"></div>
+</div>
+
+
+<h2>How these are counted</h2>
+<p>The total is C(52,3) = 22,100. A Trail is any of 13 ranks picked three ways from four
+suits (13 × 4 = 52). A Pure Sequence is 12 runs in each of 4 suits (48). And so on — every
+count divides cleanly into the 22,100 total, which is how you know none are missed.</p>
+
+<p class="upd">See also: <a href="/teen-patti">full hand rankings</a> ·
+<a href="/teen-patti-sequences">sequence order</a>.</p>
+
+</div></main>
+<footer><div class="wrap">
+  Taash Guide — rules and odds for Indian card games. Informational only; no real-money play.
+</div></footer>
+<script>const TP_ODDS={"trail": {"label": "Trail / Set", "pct": 0.24, "one_in": 425}, "pure": {"label": "Pure Sequence", "pct": 0.22, "one_in": 460}, "seq": {"label": "Sequence", "pct": 3.26, "one_in": 31}, "colour": {"label": "Colour", "pct": 4.96, "one_in": 20}, "pair": {"label": "Pair", "pct": 16.94, "one_in": 6}, "high": {"label": "High Card", "pct": 74.39, "one_in": 1}};</script>
+<script>
+(function(){
+  var SUITS=[{s:'♠',red:false},{s:'♥',red:true},{s:'♦',red:true},{s:'♣',red:false}];
+  var ORDER=['2','3','4','5','6','7','8','9','10','J','Q','K','A'];
+  var VAL={'2':2,'3':3,'4':4,'5':5,'6':6,'7':7,'8':8,'9':9,'10':10,'J':11,'Q':12,'K':13,'A':14};
+  function svgCard(rank,su){
+    var col=su.red?'#c0392b':'#20202e';
+    return '<svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="'+rank+'">'
+      +'<rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/>'
+      +'<text x="6" y="18" font-size="15" font-weight="700" fill="'+col+'" font-family="Arial,Helvetica,sans-serif">'+rank+'</text>'
+      +'<text x="24" y="46" font-size="23" text-anchor="middle" fill="'+col+'">'+su.s+'</text></svg>';
+  }
+  function deal(){
+    var deck=[],r,si;
+    for(r=0;r<ORDER.length;r++) for(si=0;si<4;si++) deck.push({r:ORDER[r],si:si});
+    var picks=[];
+    while(picks.length<3){ picks.push(deck.splice(Math.floor(Math.random()*deck.length),1)[0]); }
+    return picks;
+  }
+  function classify(cards){
+    var vals=cards.map(function(c){return VAL[c.r];}).sort(function(a,b){return a-b;});
+    var flush=(new Set(cards.map(function(c){return c.si;}))).size===1;
+    var uniq=(new Set(vals)).size, run=false;
+    if(uniq===3){ if(vals[2]-vals[0]===2) run=true; if(vals[0]===2&&vals[1]===3&&vals[2]===14) run=true; }
+    if(uniq===1) return 'trail';
+    if(run&&flush) return 'pure';
+    if(run) return 'seq';
+    if(flush) return 'colour';
+    if(uniq===2) return 'pair';
+    return 'high';
+  }
+  var counts={trail:0,pure:0,seq:0,colour:0,pair:0,high:0}, total=0;
+  var order=['trail','pure','seq','colour','pair','high'];
+  var cardsEl=document.getElementById('pb-cards'), resEl=document.getElementById('pb-result'), tallyEl=document.getElementById('pb-tally');
+  function render(cards,key){
+    cardsEl.innerHTML=cards.map(function(c){return svgCard(c.r,SUITS[c.si]);}).join('');
+    var o=TP_ODDS[key];
+    resEl.innerHTML='That’s a <b>'+o.label+'</b> — about 1 in '+o.one_in+' hands ('+o.pct+'%).';
+    var rows='';
+    for(var i=0;i<order.length;i++){ var k=order[i], seen=total?(counts[k]/total*100):0;
+      rows+='<tr><td>'+TP_ODDS[k].label+'</td><td class="num">'+counts[k]+'</td><td class="num">'+seen.toFixed(1)+'%</td><td class="num">'+TP_ODDS[k].pct+'%</td></tr>'; }
+    tallyEl.innerHTML='<p class="upd">Hands dealt: '+total+'</p><table><thead><tr><th>Hand</th><th class="num">Count</th><th class="num">So far</th><th class="num">True odds</th></tr></thead><tbody>'+rows+'</tbody></table>';
+  }
+  document.getElementById('pb-deal').addEventListener('click',function(){ var c=deal(),k=classify(c); counts[k]++; total++; render(c,k); });
+})();
+</script>
+
+</body>
+</html>

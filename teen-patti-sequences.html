@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Teen Patti Sequence List — Which Sequence Beats Which</title>
+<meta name="description" content="Every Teen Patti sequence ranked highest to lowest (A-K-Q down to 4-3-2), pure sequence vs sequence, and how to compare two runs.">
+<link rel="canonical" href="https://taashguide.com/teen-patti-sequences">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Teen Patti Sequence List — Which Sequence Beats Which">
+<meta property="og:description" content="Every Teen Patti sequence ranked highest to lowest (A-K-Q down to 4-3-2), pure sequence vs sequence, and how to compare two runs.">
+<meta property="og:url" content="https://taashguide.com/teen-patti-sequences">
+<meta property="og:site_name" content="Taash Guide">
+<style>
+:root{--ink:#1a1a2e;--muted:#5a5a72;--line:#e6e6ef;--accent:#b02a4a;--bg:#fff;--soft:#faf8f5}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font:17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px}
+header{border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;gap:10px;height:60px}
+.logo{font-weight:800;letter-spacing:-.02em;color:var(--ink);text-decoration:none;font-size:20px}
+.logo span{color:var(--accent)}
+nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-size:15px}
+nav a:hover{color:var(--ink)}
+main .wrap{padding-top:28px;padding-bottom:56px}
+h1{font-size:33px;line-height:1.2;letter-spacing:-.02em;margin:.1em 0 .3em}
+h2{font-size:23px;letter-spacing:-.01em;margin:1.9em 0 .5em}
+h3{font-size:17px;margin:1.4em 0 .3em}
+p,li{color:#26263a}
+.lede{font-size:19px;color:var(--muted)}
+.crumb{font-size:14px;color:var(--muted);margin:0 0 6px}
+.crumb a{color:var(--muted)}
+a{color:var(--accent)}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:15.5px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line)}
+th{background:var(--soft);font-weight:700}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.note{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:1.3em 0;font-size:15.5px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;margin:1.2em 0}
+.card{border:1px solid var(--line);border-radius:12px;padding:16px;text-decoration:none;color:var(--ink);transition:border-color .15s}
+.card:hover{border-color:var(--accent)}
+.card b{display:block;font-size:17px;margin-bottom:3px}
+.card small{color:var(--muted)}
+.hand{display:flex;gap:16px;align-items:center;padding:15px 0;border-bottom:1px solid var(--line)}
+.pcs{display:inline-flex;gap:4px;flex:0 0 auto}
+.pc{filter:drop-shadow(0 1px 2px rgba(20,20,40,.1))}
+.hand-name{font-weight:700;font-size:16.5px}
+.hand-name .odds{font-weight:400;font-size:13px;color:var(--muted);margin-left:8px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.hand-desc{color:var(--muted);font-size:15px;margin-top:2px}
+@media(max-width:480px){.hand{flex-direction:column;align-items:flex-start;gap:8px}}
+.gloss{margin:1em 0;padding:0}
+.gloss div{padding:11px 0;border-bottom:1px solid var(--line);display:flex;gap:14px;flex-wrap:wrap}
+.gloss dt{font-weight:700;min-width:120px;flex:0 0 auto}
+.gloss dd{margin:0;color:#3a3a50;flex:1 1 220px}
+.steps li{margin:.4em 0}
+.vari b{color:var(--ink)}
+/* interactive demo */
+.demo{border:1px solid var(--line);border-radius:12px;padding:18px;margin:1.3em 0;background:var(--soft)}
+.demo-head b{font-size:16px}
+.demo-sub{color:var(--muted);font-size:14.5px;margin:.35em 0 1em}
+.deal-btn{appearance:none;border:0;background:var(--accent);color:#fff;font-size:15px;font-weight:600;padding:10px 18px;border-radius:8px;cursor:pointer}
+.deal-btn:hover{background:#9a2440}
+.deal-btn:active{transform:translateY(1px)}
+.demo-result{font-size:16px;min-height:1.5em;margin:.2em 0 .4em}
+.demo .upd{margin:.2em 0 .4em}
+.vs{display:flex;align-items:flex-start;gap:14px;margin:16px 0 4px;flex-wrap:wrap}
+.vs-side{flex:1 1 180px;min-width:150px}
+.vs-label{font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px}
+.vs-side .pcs{min-height:58px;gap:5px}
+.vs-name{font-weight:700;font-size:15px;margin-top:6px;min-height:1.3em}
+.related{font-size:15px;color:var(--muted);margin:.2em 0 0}
+.vs-div{align-self:center;color:var(--muted);font-size:14px;font-weight:700;padding-top:22px}
+@media(max-width:480px){.vs-div{display:none}}
+.pickers{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.picker{display:inline-flex}
+.picker select{font-size:14px;padding:5px 3px;border:1px solid #cfcfdd;background:#fff;cursor:pointer}
+.picker .rk{border-radius:6px 0 0 6px;border-right:0;font-weight:600}
+.picker .su{border-radius:0 6px 6px 0;font-size:15px}
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+footer .wrap{padding:22px 20px}
+.upd{color:var(--muted);font-size:14px;margin-top:4px}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://taashguide.com/"},{"@type":"ListItem","position":2,"name":"Teen Patti","item":"https://taashguide.com/teen-patti"},{"@type":"ListItem","position":3,"name":"Sequence list","item":"https://taashguide.com/teen-patti-sequences"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Teen Patti Sequence List","description":"Every Teen Patti sequence ranked from highest to lowest, and how two sequences are compared.","mainEntityOfPage":"https://taashguide.com/teen-patti-sequences","publisher":{"@type":"Organization","name":"Taash Guide"}}</script>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="logo" href="/">Taash<span>Guide</span></a>
+  <nav><a href="/teen-patti">Teen Patti</a></nav>
+</div></header>
+<main><div class="wrap">
+
+<p class="crumb"><a href="/">Home</a> › <a href="/teen-patti">Teen Patti</a> › Sequence list</p>
+<h1>Teen Patti sequence list — which sequence beats which</h1>
+<p class="lede">A sequence (run) is three consecutive cards. Here's every run ranked from
+highest to lowest, and the rule for comparing two of them.</p>
+
+<h2>Pure sequence vs sequence</h2>
+<p>A <b>Pure Sequence</b> is three consecutive cards of the <i>same suit</i> (a straight
+flush) — like <span class="pcs"><svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="A of spades"><rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/><text x="6" y="18" font-size="15" font-weight="700" fill="#20202e" font-family="Arial,Helvetica,sans-serif">A</text><text x="24" y="46" font-size="23" text-anchor="middle" fill="#20202e">♠</text></svg><svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="K of spades"><rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/><text x="6" y="18" font-size="15" font-weight="700" fill="#20202e" font-family="Arial,Helvetica,sans-serif">K</text><text x="24" y="46" font-size="23" text-anchor="middle" fill="#20202e">♠</text></svg><svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="Q of spades"><rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/><text x="6" y="18" font-size="15" font-weight="700" fill="#20202e" font-family="Arial,Helvetica,sans-serif">Q</text><text x="24" y="46" font-size="23" text-anchor="middle" fill="#20202e">♠</text></svg></span>. A plain <b>Sequence</b> is three consecutive cards of mixed suits.
+Any Pure Sequence beats any plain Sequence; among themselves, both follow the same order
+below.</p>
+
+<h2>Sequences, highest to lowest</h2>
+<p>A-K-Q is the top run. A-2-3 (<span class="pcs"><svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="A of hearts"><rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/><text x="6" y="18" font-size="15" font-weight="700" fill="#c0392b" font-family="Arial,Helvetica,sans-serif">A</text><text x="24" y="46" font-size="23" text-anchor="middle" fill="#c0392b">♥</text></svg><svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="2 of hearts"><rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/><text x="6" y="18" font-size="15" font-weight="700" fill="#c0392b" font-family="Arial,Helvetica,sans-serif">2</text><text x="24" y="46" font-size="23" text-anchor="middle" fill="#c0392b">♥</text></svg><svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="3 of hearts"><rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/><text x="6" y="18" font-size="15" font-weight="700" fill="#c0392b" font-family="Arial,Helvetica,sans-serif">3</text><text x="24" y="46" font-size="23" text-anchor="middle" fill="#c0392b">♥</text></svg></span>) comes next — it's a valid run and, in most house
+rules, ranks second. After that, runs rank by their top card down to 4-3-2.</p>
+<ol class='steps'><li>A-K-Q</li><li>A-2-3</li><li>K-Q-J</li><li>Q-J-10</li><li>J-10-9</li><li>10-9-8</li><li>9-8-7</li><li>8-7-6</li><li>7-6-5</li><li>6-5-4</li><li>5-4-3</li><li>4-3-2</li></ol>
+
+<h2>Comparing two sequences</h2>
+<p>Find each hand's run in the list above; the one higher up wins. Two players can't hold
+the same run in the same suits, so a Pure Sequence never ties another Pure Sequence.</p>
+
+<div class="note">House rules vary on exactly where A-2-3 sits — some rank it as the
+lowest run instead of the second-highest. Agree this before you play.</div>
+
+<p class="upd">See also: <a href="/teen-patti">full hand rankings</a> ·
+<a href="/teen-patti-probability">how likely each hand is</a>.</p>
+
+</div></main>
+<footer><div class="wrap">
+  Taash Guide — rules and odds for Indian card games. Informational only; no real-money play.
+</div></footer>
+
+</body>
+</html>
