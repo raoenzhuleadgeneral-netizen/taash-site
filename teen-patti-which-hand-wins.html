@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Teen Patti: Which Hand Beats Which (Hand Comparison)</title>
+<meta name="description" content="Does a trail beat a pure sequence? Does a sequence beat a colour? Straight answers to every Teen Patti hand-comparison question, with examples and odds.">
+<link rel="canonical" href="https://taashguide.com/teen-patti-which-hand-wins">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Teen Patti: Which Hand Beats Which (Hand Comparison)">
+<meta property="og:description" content="Does a trail beat a pure sequence? Does a sequence beat a colour? Straight answers to every Teen Patti hand-comparison question, with examples and odds.">
+<meta property="og:url" content="https://taashguide.com/teen-patti-which-hand-wins">
+<meta property="og:site_name" content="Taash Guide">
+<style>
+:root{--ink:#1a1a2e;--muted:#5a5a72;--line:#e6e6ef;--accent:#b02a4a;--bg:#fff;--soft:#faf8f5}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font:17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px}
+header{border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;gap:10px;height:60px}
+.logo{font-weight:800;letter-spacing:-.02em;color:var(--ink);text-decoration:none;font-size:20px}
+.logo span{color:var(--accent)}
+nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-size:15px}
+nav a:hover{color:var(--ink)}
+main .wrap{padding-top:28px;padding-bottom:56px}
+h1{font-size:33px;line-height:1.2;letter-spacing:-.02em;margin:.1em 0 .3em}
+h2{font-size:23px;letter-spacing:-.01em;margin:1.9em 0 .5em}
+h3{font-size:17px;margin:1.4em 0 .3em}
+p,li{color:#26263a}
+.lede{font-size:19px;color:var(--muted)}
+.crumb{font-size:14px;color:var(--muted);margin:0 0 6px}
+.crumb a{color:var(--muted)}
+a{color:var(--accent)}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:15.5px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line)}
+th{background:var(--soft);font-weight:700}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.note{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:1.3em 0;font-size:15.5px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;margin:1.2em 0}
+.card{border:1px solid var(--line);border-radius:12px;padding:16px;text-decoration:none;color:var(--ink);transition:border-color .15s}
+.card:hover{border-color:var(--accent)}
+.card b{display:block;font-size:17px;margin-bottom:3px}
+.card small{color:var(--muted)}
+.hand{display:flex;gap:16px;align-items:center;padding:15px 0;border-bottom:1px solid var(--line)}
+.pcs{display:inline-flex;gap:4px;flex:0 0 auto}
+.pc{filter:drop-shadow(0 1px 2px rgba(20,20,40,.1))}
+.hand-name{font-weight:700;font-size:16.5px}
+.hand-name .odds{font-weight:400;font-size:13px;color:var(--muted);margin-left:8px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.hand-desc{color:var(--muted);font-size:15px;margin-top:2px}
+@media(max-width:480px){.hand{flex-direction:column;align-items:flex-start;gap:8px}}
+.gloss{margin:1em 0;padding:0}
+.gloss div{padding:11px 0;border-bottom:1px solid var(--line);display:flex;gap:14px;flex-wrap:wrap}
+.gloss dt{font-weight:700;min-width:120px;flex:0 0 auto}
+.gloss dd{margin:0;color:#3a3a50;flex:1 1 220px}
+.steps li{margin:.4em 0}
+.vari b{color:var(--ink)}
+/* interactive demo */
+.demo{border:1px solid var(--line);border-radius:12px;padding:18px;margin:1.3em 0;background:var(--soft)}
+.demo-head b{font-size:16px}
+.demo-sub{color:var(--muted);font-size:14.5px;margin:.35em 0 1em}
+.deal-btn{appearance:none;border:0;background:var(--accent);color:#fff;font-size:15px;font-weight:600;padding:10px 18px;border-radius:8px;cursor:pointer}
+.deal-btn:hover{background:#9a2440}
+.deal-btn:active{transform:translateY(1px)}
+.demo-result{font-size:16px;min-height:1.5em;margin:.2em 0 .4em}
+.demo .upd{margin:.2em 0 .4em}
+.vs{display:flex;align-items:flex-start;gap:14px;margin:16px 0 4px;flex-wrap:wrap}
+.vs-side{flex:1 1 180px;min-width:150px}
+.vs-label{font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px}
+.vs-side .pcs{min-height:58px;gap:5px}
+.vs-name{font-weight:700;font-size:15px;margin-top:6px;min-height:1.3em}
+.related{font-size:15px;color:var(--muted);margin:.2em 0 0}
+.matchup{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:.2em 0 1.4em}
+.vs-mini{color:var(--muted);font-size:14px;font-weight:600;padding:0 2px}
+.vs-div{align-self:center;color:var(--muted);font-size:14px;font-weight:700;padding-top:22px}
+@media(max-width:480px){.vs-div{display:none}}
+.pickers{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.picker{display:inline-flex}
+.picker select{font-size:14px;padding:5px 3px;border:1px solid #cfcfdd;background:#fff;cursor:pointer}
+.picker .rk{border-radius:6px 0 0 6px;border-right:0;font-weight:600}
+.picker .su{border-radius:0 6px 6px 0;font-size:15px}
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+footer .wrap{padding:22px 20px}
+.upd{color:var(--muted);font-size:14px;margin-top:4px}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://taashguide.com/"},{"@type":"ListItem","position":2,"name":"Teen Patti","item":"https://taashguide.com/teen-patti"},{"@type":"ListItem","position":3,"name":"Which hand wins","item":"https://taashguide.com/teen-patti-which-hand-wins"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does a Trail beat a Pure Sequence?","acceptedAnswer":{"@type":"Answer","text":"Yes. A Trail (three of a kind) is the highest hand in Teen Patti, so it beats a Pure Sequence (straight flush) — even though a Pure Sequence (48 hands) is actually rarer than a Trail (52 hands). Nothing beats a Trail."}},{"@type":"Question","name":"What beats a Pure Sequence in Teen Patti?","acceptedAnswer":{"@type":"Answer","text":"Only a Trail. A Pure Sequence is the second-highest hand, so the only thing that beats it is three of a kind. Between two Pure Sequences, the higher run wins (A-K-Q is top)."}},{"@type":"Question","name":"Pure Sequence vs Sequence — which is higher?","acceptedAnswer":{"@type":"Answer","text":"A Pure Sequence wins. A Pure Sequence is three consecutive cards of the same suit; a plain Sequence is three consecutive cards of mixed suits. Any Pure Sequence beats any plain Sequence."}},{"@type":"Question","name":"Does a Sequence beat a Colour? (straight vs flush)","acceptedAnswer":{"@type":"Answer","text":"Yes — and this is the opposite of poker. In Teen Patti a Sequence (run) beats a Colour (flush). Why: a Sequence (720 hands) is rarer than a Colour (1,096 hands), so it ranks higher. In poker a flush beats a straight; in three-card Teen Patti it's reversed."}},{"@type":"Question","name":"Does a Colour beat a Pair?","acceptedAnswer":{"@type":"Answer","text":"Yes. A Colour (three cards of one suit, not in sequence) ranks above a Pair."}},{"@type":"Question","name":"Does a Pair beat a High Card?","acceptedAnswer":{"@type":"Answer","text":"Yes. Any Pair beats any High Card. A High Card is the weakest hand — it just means none of the above, decided by the highest card."}},{"@type":"Question","name":"Is A-2-3 a valid sequence in Teen Patti?","acceptedAnswer":{"@type":"Answer","text":"Yes. A-2-3 is a valid run. In most house rules it is the second-highest sequence, just below A-K-Q. Some tables instead rank it as the lowest run — agree which before you play."}},{"@type":"Question","name":"A-K-Q vs A-2-3 — which is the higher sequence?","acceptedAnswer":{"@type":"Answer","text":"A-K-Q. A-K-Q is the highest run in Teen Patti; A-2-3 usually comes second, then K-Q-J down to 4-3-2."}},{"@type":"Question","name":"What is the highest pair in Teen Patti?","acceptedAnswer":{"@type":"Answer","text":"A pair of Aces (A-A) with the best third card — A-A-K. Between two equal pairs, the third card (the kicker) decides the winner."}}]}</script>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="logo" href="/">Taash<span>Guide</span></a>
+  <nav><a href="/teen-patti">Teen Patti</a></nav>
+</div></header>
+<main><div class="wrap">
+
+<p class="crumb"><a href="/">Home</a> › <a href="/teen-patti">Teen Patti</a> › Which hand wins</p>
+<h1>Teen Patti: which hand beats which</h1>
+<p class="lede">Straight answers to the "does X beat Y" questions, with examples and the odds
+behind them. For the full order, see the <a href="/teen-patti">hand rankings</a>.</p>
+
+<h2>Does a Trail beat a Pure Sequence?</h2><p><b>Yes.</b> A Trail (three of a kind) is the highest hand in Teen Patti, so it beats a Pure Sequence (straight flush) — even though a Pure Sequence (48 hands) is actually rarer than a Trail (52 hands). Nothing beats a Trail.</p><div class="matchup"><span class="pcs"><svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="A of spades"><rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/><text x="6" y="18" font-size="15" font-weight="700" fill="#20202e" font-family="Arial,Helvetica,sans-serif">A</text><text x="24" y="46" font-size="23" text-anchor="middle" fill="#20202e">♠</text></svg><svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="A of hearts"><rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/><text x="6" y="18" font-size="15" font-weight="700" fill="#c0392b" font-family="Arial,Helvetica,sans-serif">A</text><text x="24" y="46" font-size="23" text-anchor="middle" fill="#c0392b">♥</text></svg><svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="A of diamonds"><rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/><text x="6" y="18" font-size="15" font-weight="700" fill="#c0392b" font-family="Arial,Helvetica,sans-serif">A</text><text x="24" y="46" font-size="23" text-anchor="middle" fill="#c0392b">♦</text></svg></span><span class="vs-mini">beats</span><span class="pcs"><svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="A of hearts"><rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/><text x="6" y="18" font-size="15" font-weight="700" fill="#c0392b" font-family="Arial,Helvetica,sans-serif">A</text><text x="24" y="46" font-size="23" text-anchor="middle" fill="#c0392b">♥</text></svg><svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="K of hearts"><rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/><text x="6" y="18" font-size="15" font-weight="700" fill="#c0392b" font-family="Arial,Helvetica,sans-serif">K</text><text x="24" y="46" font-size="23" text-anchor="middle" fill="#c0392b">♥</text></svg><svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="Q of hearts"><rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/><text x="6" y="18" font-size="15" font-weight="700" fill="#c0392b" font-family="Arial,Helvetica,sans-serif">Q</text><text x="24" y="46" font-size="23" text-anchor="middle" fill="#c0392b">♥</text></svg></span></div><h2>What beats a Pure Sequence in Teen Patti?</h2><p><b>Only a Trail.</b> A Pure Sequence is the second-highest hand, so the only thing that beats it is three of a kind. Between two Pure Sequences, the higher run wins (A-K-Q is top).</p><h2>Pure Sequence vs Sequence — which is higher?</h2><p><b>A Pure Sequence wins.</b> A Pure Sequence is three consecutive cards of the <i>same suit</i>; a plain Sequence is three consecutive cards of mixed suits. Any Pure Sequence beats any plain Sequence.</p><div class="matchup"><span class="pcs"><svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="9 of hearts"><rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/><text x="6" y="18" font-size="15" font-weight="700" fill="#c0392b" font-family="Arial,Helvetica,sans-serif">9</text><text x="24" y="46" font-size="23" text-anchor="middle" fill="#c0392b">♥</text></svg><svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="10 of hearts"><rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/><text x="6" y="18" font-size="15" font-weight="700" fill="#c0392b" font-family="Arial,Helvetica,sans-serif">10</text><text x="24" y="46" font-size="23" text-anchor="middle" fill="#c0392b">♥</text></svg><svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="J of hearts"><rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/><text x="6" y="18" font-size="15" font-weight="700" fill="#c0392b" font-family="Arial,Helvetica,sans-serif">J</text><text x="24" y="46" font-size="23" text-anchor="middle" fill="#c0392b">♥</text></svg></span><span class="vs-mini">beats</span><span class="pcs"><svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="8 of spades"><rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/><text x="6" y="18" font-size="15" font-weight="700" fill="#20202e" font-family="Arial,Helvetica,sans-serif">8</text><text x="24" y="46" font-size="23" text-anchor="middle" fill="#20202e">♠</text></svg><svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="9 of hearts"><rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/><text x="6" y="18" font-size="15" font-weight="700" fill="#c0392b" font-family="Arial,Helvetica,sans-serif">9</text><text x="24" y="46" font-size="23" text-anchor="middle" fill="#c0392b">♥</text></svg><svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="10 of diamonds"><rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/><text x="6" y="18" font-size="15" font-weight="700" fill="#c0392b" font-family="Arial,Helvetica,sans-serif">10</text><text x="24" y="46" font-size="23" text-anchor="middle" fill="#c0392b">♦</text></svg></span></div><h2>Does a Sequence beat a Colour? (straight vs flush)</h2><p><b>Yes — and this is the opposite of poker.</b> In Teen Patti a Sequence (run) beats a Colour (flush). Why: a Sequence (720 hands) is rarer than a Colour (1,096 hands), so it ranks higher. In poker a flush beats a straight; in three-card Teen Patti it's reversed.</p><div class="matchup"><span class="pcs"><svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="5 of spades"><rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/><text x="6" y="18" font-size="15" font-weight="700" fill="#20202e" font-family="Arial,Helvetica,sans-serif">5</text><text x="24" y="46" font-size="23" text-anchor="middle" fill="#20202e">♠</text></svg><svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="6 of hearts"><rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/><text x="6" y="18" font-size="15" font-weight="700" fill="#c0392b" font-family="Arial,Helvetica,sans-serif">6</text><text x="24" y="46" font-size="23" text-anchor="middle" fill="#c0392b">♥</text></svg><svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="7 of diamonds"><rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/><text x="6" y="18" font-size="15" font-weight="700" fill="#c0392b" font-family="Arial,Helvetica,sans-serif">7</text><text x="24" y="46" font-size="23" text-anchor="middle" fill="#c0392b">♦</text></svg></span><span class="vs-mini">beats</span><span class="pcs"><svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="2 of clubs"><rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/><text x="6" y="18" font-size="15" font-weight="700" fill="#20202e" font-family="Arial,Helvetica,sans-serif">2</text><text x="24" y="46" font-size="23" text-anchor="middle" fill="#20202e">♣</text></svg><svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="7 of clubs"><rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/><text x="6" y="18" font-size="15" font-weight="700" fill="#20202e" font-family="Arial,Helvetica,sans-serif">7</text><text x="24" y="46" font-size="23" text-anchor="middle" fill="#20202e">♣</text></svg><svg class="pc" viewBox="0 0 48 66" width="42" height="58" role="img" aria-label="J of clubs"><rect x="1.5" y="1.5" width="45" height="63" rx="6" fill="#fff" stroke="#d9d9e3"/><text x="6" y="18" font-size="15" font-weight="700" fill="#20202e" font-family="Arial,Helvetica,sans-serif">J</text><text x="24" y="46" font-size="23" text-anchor="middle" fill="#20202e">♣</text></svg></span></div><h2>Does a Colour beat a Pair?</h2><p><b>Yes.</b> A Colour (three cards of one suit, not in sequence) ranks above a Pair.</p><h2>Does a Pair beat a High Card?</h2><p><b>Yes.</b> Any Pair beats any High Card. A High Card is the weakest hand — it just means none of the above, decided by the highest card.</p><h2>Is A-2-3 a valid sequence in Teen Patti?</h2><p><b>Yes.</b> A-2-3 is a valid run. In most house rules it is the second-highest sequence, just below A-K-Q. Some tables instead rank it as the lowest run — agree which before you play.</p><h2>A-K-Q vs A-2-3 — which is the higher sequence?</h2><p><b>A-K-Q.</b> A-K-Q is the highest run in Teen Patti; A-2-3 usually comes second, then K-Q-J down to 4-3-2.</p><h2>What is the highest pair in Teen Patti?</h2><p><b>A pair of Aces (A-A) with the best third card — A-A-K.</b> Between two equal pairs, the third card (the kicker) decides the winner.</p>
+
+<div class="note">The quick order, strongest to weakest: <b>Trail › Pure Sequence › Sequence ›
+Colour › Pair › High Card</b>. Note that Sequence beats Colour — the reverse of poker.</div>
+
+<p class="upd">See also: <a href="/teen-patti">full hand rankings</a> ·
+<a href="/teen-patti-sequences">sequence order</a> ·
+<a href="/teen-patti-probability">exact odds</a>.</p>
+
+</div></main>
+<footer><div class="wrap">
+  Taash Guide — rules and odds for Indian card games. Informational only; no real-money play.
+</div></footer>
+
+</body>
+</html>
